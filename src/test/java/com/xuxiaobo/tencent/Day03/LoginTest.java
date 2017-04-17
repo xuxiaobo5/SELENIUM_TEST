@@ -26,40 +26,33 @@ public class LoginTest {
 
     @Test
     public void testLoginSuccess(){
-        //driver转交控制权
-        driver.switchTo().frame("x-URS-iframe");
-        //输入邮箱用户名
-        driver.findElement(By.name("email")).sendKeys("xuxiaobo5");
-        //输入邮箱密码
-        driver.findElement(By.name("password")).sendKeys("Xxb520Hjj@");
-        //点击登录按钮
-        driver.findElement(By.id("dologin")).click();
-
+        login(driver,"xuxiaobo5","Xxb520Hjj@");
         //显式等待
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='spnUid']")));
-
         String username = driver.findElement(By.xpath(".//*[@id='spnUid']")).getText();
         Assert.assertEquals(username,"xuxiaobo5@163.com");
     }
 
     @Test
     public void testLoginFail(){
-        //driver转交控制权
-        driver.switchTo().frame("x-URS-iframe");
-        //输入邮箱用户名
-        driver.findElement(By.name("email")).sendKeys("xuxiaobo5");
-        //输入邮箱密码
-        driver.findElement(By.name("password")).sendKeys("123456");
-        //点击登录按钮
-        driver.findElement(By.id("dologin")).click();
-
+        login(driver,"xuxiaobo123","123456");
         //显式等待
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='nerror']/div[2]")));
-
         String errInfo = driver.findElement(By.xpath(".//*[@id='nerror']/div[2]")).getText();
         Assert.assertEquals(errInfo,"帐号或密码错误");
+    }
+
+    public static void login(WebDriver driver, String email, String pwd){
+        //driver转交控制权
+        driver.switchTo().frame("x-URS-iframe");
+        //输入邮箱用户名
+        driver.findElement(By.name("email")).sendKeys(email);
+        //输入邮箱密码
+        driver.findElement(By.name("password")).sendKeys(pwd);
+        //点击登录按钮
+        driver.findElement(By.id("dologin")).click();
     }
 
     @AfterMethod
