@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Administrator on 2017/4/18 0018.
  */
+
 public class MailTest {
     WebDriver driver;
 
@@ -56,8 +57,6 @@ public class MailTest {
         Boolean bl = driver.findElement(By.xpath("./*//*[text()='发送成功']")).isDisplayed();
         Assert.assertTrue(bl);
     }
-
-
 
     @AfterMethod
     public void closeChrome(){
