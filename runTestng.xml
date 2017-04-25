@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+  <test name="SELENIUM_TEST">
+    <classes>
+      <class name="com.xuxiaobo.tencent.Day01.BrowserOpenTest">
+        <methods>
+          <include name="openChrome"/>
+        </methods>
+      </class> <!-- com.xuxiaobo.tencent.Day01.BrowserOpenTest -->
+    </classes>
+  </test> <!-- SELENIUM_TEST -->
+</suite> <!-- Default Suite -->
