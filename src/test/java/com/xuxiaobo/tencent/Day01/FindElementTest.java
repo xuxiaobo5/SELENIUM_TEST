@@ -24,45 +24,52 @@ public class FindElementTest {
         driver = new ChromeDriver();
     }
 
+    //通过ID定位
     @Test
-    public void locateById(){
+    public void locateByIdTest(){
         driver.get("http://www.baidu.com");
         driver.findElement(By.id("kw")).sendKeys("selenium");
     }
 
+    //通过Name定位
     @Test
-    public void locateByName(){
+    public void locateByNameTest(){
         driver.get("http://www.baidu.com");
         driver.findElement(By.name("wd")).sendKeys("selenium");
     }
 
+    //通过ClassName定位
     @Test
-    public void locateByClass(){
+    public void locateByClassTest(){
         driver.get("http://www.baidu.com");
         driver.findElement(By.name("wd")).sendKeys("hjj");
         driver.findElement(By.className("s_btn")).click();
     }
 
+    //通过文本定位
     @Test
-    public void locateByLinkText(){
+    public void locateByLinkTextTest(){
         driver.get("http://www.baidu.com");
         driver.findElement(By.linkText("糯米")).click();
     }
 
+    //通过部分文本定位
     @Test
-    public void locateByPartialLinkText(){
+    public void locateByPartialLinkTextTest(){
         driver.get("http://www.baidu.com");
         driver.findElement(By.partialLinkText("闻")).click();
     }
 
+    //通过Xpath定位
     @Test
-    public void locateByXpath(){
+    public void locateByXpathTest01(){
         driver.get("http://www.baidu.com");
         driver.findElement(By.xpath(".//input[@id='su']")).click();
     }
 
+    //通过Xpath定位
     @Test
-    public void locateByXpath02(){
+    public void locateByXpathTest02(){
         driver.get("http://www.baidu.com");
         List<WebElement> list = driver.findElements(By.xpath(".//*[@id='u1']/a"));
         for (int i = 0; i < list.size(); i++) {
@@ -71,9 +78,17 @@ public class FindElementTest {
         }
     }
 
+    //通过TagName定位
+    @Test
+    public void locateByTagNameTest(){
+        driver.get("http://www.baidu.com");
+        List<WebElement> list = driver.findElements(By.tagName("input"));
+        System.out.println(list.size());
+    }
+
     @AfterMethod
     public void closeChrome(){
-        //driver.quit();
+        driver.quit();
     }
 
 }

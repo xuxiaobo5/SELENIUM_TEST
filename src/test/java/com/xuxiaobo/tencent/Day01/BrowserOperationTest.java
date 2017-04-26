@@ -1,5 +1,6 @@
 package com.xuxiaobo.tencent.Day01;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -19,20 +20,49 @@ public class BrowserOperationTest {
         driver = new ChromeDriver();
     }
 
+    //浏览器进行后退操作
     @Test
-    public void operateBrowser1() throws InterruptedException {
+    public void getTest() throws InterruptedException {
         driver.get("http://www.baidu.com");
         Thread.sleep(5000);
         driver.navigate().back();
         Thread.sleep(5000);
     }
 
+    //获取当前页面的Title
     @Test
-    public void operateBrowser2(){
+    public void getTitleTest(){
+        driver.get("http://www.baidu.com");
+        String title = driver.getTitle();
+        System.out.println(title);
+    }
+
+    //获取浏览器的URL并且做断言与预期是否相等
+    @Test
+    public void getUrlTest(){
         driver.get("http://www.baidu.com");
         String url = driver.getCurrentUrl();
         System.out.print("URL地址是"+url);
         Assert.assertEquals(url,"https://www.baidu.com/");
+    }
+
+    //刷新页面
+    @Test
+    public void refreshTest() throws InterruptedException {
+        driver.get("http://www.baidu.com");
+        Thread.sleep(3000);
+        driver.navigate().refresh();
+        Thread.sleep(5000);
+    }
+
+    //设置窗口大小,最大化浏览器
+    @Test
+    public void sizeTest() throws InterruptedException {
+        Dimension dimension = new Dimension(500,500);
+        driver.manage().window().setSize(dimension);
+        Thread.sleep(5000);
+        driver.manage().window().maximize();
+        Thread.sleep(5000);
     }
 
     @AfterMethod
