@@ -18,12 +18,14 @@ public class TestngDemo01 {
     }
 
     @Test
-    public void testCase01(){
+    public void testCase01() throws InterruptedException {
+        Thread.sleep(5000);
         System.out.println("这是@Test注解,case1");
     }
 
     @Test
-    public void testCase02(){
+    public void testCase02() throws InterruptedException {
+        Thread.sleep(5000);
         System.out.println("这是@Test注解,case2");
     }
 
