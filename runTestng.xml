@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Default Suite">
+<suite name="Default Suite" >
   <test name="SELENIUM_TEST">
     <classes>
-      <class name="com.xuxiaobo.tencent.Day01.BrowserOpenTest">
+      <class name="com.xuxiaobo.tencent.Day01.TestngDemo01">
         <methods>
-          <include name="openChrome"/>
+          <include name="testCase02"/>
         </methods>
       </class> <!-- com.xuxiaobo.tencent.Day01.BrowserOpenTest -->
     </classes>
