@@ -1,5 +1,6 @@
 package com.xuxiaobo.tencent.Day01;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 /**
@@ -27,6 +28,7 @@ public class TestngDemo01 {
     public void testCase02() throws InterruptedException {
         Thread.sleep(5000);
         System.out.println("这是@Test注解,case2");
+        Assert.assertEquals(1,2);
     }
 
     @AfterMethod
