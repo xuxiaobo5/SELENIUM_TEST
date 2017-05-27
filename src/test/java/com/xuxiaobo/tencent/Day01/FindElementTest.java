@@ -20,7 +20,8 @@ public class FindElementTest {
 
     @BeforeMethod
     public void openChrome(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Administrator\\IdeaProjects\\seleniumtest\\drivers\\chromedriver.exe");
+        String path = System.getProperty("user.dir");
+        System.setProperty( "webdriver.chrome.driver", path +"\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
@@ -84,6 +85,13 @@ public class FindElementTest {
         driver.get("http://www.baidu.com");
         List<WebElement> list = driver.findElements(By.tagName("input"));
         System.out.println(list.size());
+    }
+
+    //通过css selector定位
+    @Test
+    public void locateByCss(){
+        driver.get("http://www.baidu.com");
+        driver.findElement(By.cssSelector("#kw"));
     }
 
     @AfterMethod

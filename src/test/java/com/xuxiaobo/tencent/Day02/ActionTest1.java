@@ -2,6 +2,7 @@ package com.xuxiaobo.tencent.Day02;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.xpath.operations.Bool;
+import org.junit.experimental.theories.Theories;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -44,6 +45,25 @@ public class ActionTest1 {
         Thread.sleep(5000);
     }
 
+    //清除文本
+    @Test
+    public void clearTest() throws InterruptedException {
+        driver.get("http://www.baidu.com");
+        WebElement ele = driver.findElement(By.id("kw"));
+        ele.sendKeys("selenium");
+        Thread.sleep(5000);
+        ele.clear();
+        Thread.sleep(5000);
+    }
+
+    //获取文本
+    @Test
+    public void getTextTest(){
+        driver.get("http://www.baidu.com");
+        String news = driver.findElement(By.name("tj_trnews")).getText();
+        Assert.assertEquals(news,"新闻");
+    }
+
     //获取Title
     @Test
     public void getTitleTest() throws InterruptedException {
@@ -58,32 +78,12 @@ public class ActionTest1 {
         Assert.assertEquals(title,"selenium_百度搜索");
     }
 
-    //获取文本
-    @Test
-    public void getTextTest(){
-        driver.get("http://www.baidu.com");
-        String news = driver.findElement(By.name("tj_trnews")).getText();
-        Assert.assertEquals(news,"新闻");
-    }
-
-    //清除文本
-    @Test
-    public void clearTest() throws InterruptedException {
-        driver.get("http://www.baidu.com");
-        WebElement ele = driver.findElement(By.id("kw"));
-        ele.sendKeys("selenium");
-        Thread.sleep(5000);
-        ele.clear();
-        Thread.sleep(5000);
-    }
-
     //获取TagName
     @Test
     public void getTagNameTest(){
         driver.get("http://www.baidu.com");
         String tagName = driver.findElement(By.id("kw")).getTagName();
         System.out.println(tagName);
-        Assert.assertEquals(tagName,"input");
     }
 
     //获取属性值
@@ -104,26 +104,28 @@ public class ActionTest1 {
 
     //判断元素是否选中
     @Test
-    public void isSelectTest(){
+    public void isSelectTest() throws InterruptedException {
         driver.get("file:///D:/selenium_html/index.html");
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"radio\"]/input[1]"));
-        element.click();
-        Boolean b = element.isSelected();
+        WebElement ele = driver.findElement(By.xpath("//*[@id=\"radio\"]/input[1]"));
+        ele.click();
+        Boolean b = ele.isSelected();
         Assert.assertTrue(b);
+        Thread.sleep(5000);
     }
 
     //判断元素是否激活
     @Test
-    public void isEnableTest(){
+    public void isEnableTest() throws InterruptedException {
         driver.get("file:///D:/selenium_html/index.html");
         Boolean b = driver.findElement(By.name("buttonhtml")).isEnabled();
         Assert.assertFalse(b);
+        Thread.sleep(5000);
     }
 
     //截图百度首页
     @Test
-    public void shotTest(){
-        driver.get("http://www.baidu.com");
+    public void sreenShootTest(){
+        driver.get("http://www.taobao.com");
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try{
             FileUtils.copyFile(file,new File(("D:\\test.png")));

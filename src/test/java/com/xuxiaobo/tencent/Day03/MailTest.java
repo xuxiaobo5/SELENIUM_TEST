@@ -37,6 +37,7 @@ public class MailTest {
 
         //点击写信按钮
         driver.findElement(By.xpath("./*//*[@id='dvNavTop']/ul/li[2]/span[2]")).click();
+        //*[@id="_mail_component_68_68"]/span[2]
         //输入收件人地址
         driver.findElement(By.xpath(".//*[@aria-label='收件人地址输入框，请输入邮件地址，多人时地址请以分号隔开']")).sendKeys("234508021@qq.com");
         //输入邮件主题
@@ -60,6 +61,6 @@ public class MailTest {
 
     @AfterMethod
     public void closeChrome(){
-        driver.quit();
+        //driver.quit();
     }
 }
