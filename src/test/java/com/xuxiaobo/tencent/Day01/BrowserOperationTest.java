@@ -1,12 +1,16 @@
 package com.xuxiaobo.tencent.Day01;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/31 0031.
@@ -26,6 +30,7 @@ public class BrowserOperationTest {
         driver.get("http://www.baidu.com");
         Thread.sleep(5000);
         driver.navigate().back();
+        driver.navigate().forward();
         Thread.sleep(5000);
     }
 
@@ -58,11 +63,17 @@ public class BrowserOperationTest {
     //设置窗口大小,最大化浏览器
     @Test
     public void sizeTest() throws InterruptedException {
+        //设置浏览器宽和高都是500的大小
         Dimension dimension = new Dimension(500,500);
         driver.manage().window().setSize(dimension);
         Thread.sleep(5000);
+        //设置浏览器最大化
         driver.manage().window().maximize();
         Thread.sleep(5000);
+        List<WebElement> list = driver.findElements(By.xpath("xxx"));
+        for (int i = 0; i < list.size() ; i++) {
+            list.get(i).click();
+        }
     }
 
     @AfterMethod
