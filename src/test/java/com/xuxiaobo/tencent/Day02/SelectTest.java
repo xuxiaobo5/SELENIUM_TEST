@@ -48,7 +48,6 @@ public class SelectTest {
         //通过文本值来选择下拉框
         select.selectByVisibleText("iphone");
         Thread.sleep(2000);
-
     }
 
     @Test
