@@ -47,7 +47,7 @@ public class LoginTest {
     }
 
     @Test
-    public void login(WebDriver driver, String email, String pwd){
+    public static void login(WebDriver driver, String email, String pwd){
         driver = new ChromeDriver();
         driver.get("http://mail.163.com");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

@@ -47,7 +47,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
-                    <suiteXmlFiles>./runTestng.xml</suiteXmlFiles>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>./runTestng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
 

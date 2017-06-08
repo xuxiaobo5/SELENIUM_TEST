@@ -88,7 +88,6 @@ public class ActionTest2 {
         Thread.sleep(5000);
     }
 
-
     @Test
     public void saveTest() throws AWTException, InterruptedException {
         driver.get("http://www.baidu.com");
