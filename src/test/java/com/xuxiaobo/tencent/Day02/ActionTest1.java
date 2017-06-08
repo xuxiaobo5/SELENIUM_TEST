@@ -1,8 +1,6 @@
 package com.xuxiaobo.tencent.Day02;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.xpath.operations.Bool;
-import org.junit.experimental.theories.Theories;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
